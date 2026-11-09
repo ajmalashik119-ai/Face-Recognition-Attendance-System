@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>FaceAttend | Real-Time Attendance System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"type="image/x-icon" href="logo.jpg" />
+</head>
+<body>
+    <div class="dashboard">
+        <div class="brand">
+            <h1>🔍 FaceAttend · Real-time Attendance</h1>
+            <p>Secure · Biometric · Live</p>
+        </div>
+
+        <!-- THREE PORTAL CARDS -->
+        <div class="portal-grid">
+            <div class="portal-card">
+                <div class="portal-icon">👨‍💼</div>
+                <h3>Admin Portal</h3>
+                <p>Manage students, view attendance records, reset registrations</p>
+                <button class="portal-btn" id="openAdminBtn">Enter portal →</button>
+            </div>
+            <div class="portal-card">
+                <div class="portal-icon">📸</div>
+                <h3>Kiosk Mode</h3>
+                <p>Classroom scanner · real-time face recognition at entry</p>
+                <button class="portal-btn" id="openKioskBtn">Enter portal →</button>
+            </div>
+            <div class="portal-card">
+                <div class="portal-icon">🎓</div>
+                <h3>Student Access</h3>
+                <p>Register your face ID for contactless attendance</p>
+                <button class="portal-btn" id="openStudentPortalBtn">Enter portal →</button>
+            </div>
+        </div>
+
+        <!-- OVERVIEW STATS -->
+        <div class="stats-row" id="statsContainer"></div>
+
+        <!-- ADMIN PANEL -->
+        <div id="adminPanel" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>📋 Admin Dashboard · Records & Management</h2>
+                <button class="reset-btn" id="closeAdminBtn">✕ Close</button>
+            </div>
+            <div class="flex-between" style="margin-bottom: 20px;">
+                <button id="resetAllDataBtn" class="danger-btn">🧹 Reset all registrations</button>
+                <span style="font-size: 0.75rem;">Total registered students: <strong id="totalRegDisplay">0</strong></span>
+            </div>
+            <div style="overflow-x: auto;">
+                <table style="width:100%; border-collapse: collapse;" id="attendanceTable">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left; padding:12px 6px;">Student</th>
+                            <th>ID</th>
+                            <th>Today Status</th>
+                            <th>Check-in Time</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminTableBody"></tbody>
+                </table>
+            </div>
+            <p style="margin-top: 16px; font-size: 0.7rem; color:gray;">※ Manual override: mark present/absent</p>
+        </div>
+
+        <!-- KIOSK MODE -->
+        <div id="kioskPanel" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>📸 Classroom Attendance Scanner · Room 101 · CS Department</h2>
+                <button class="reset-btn" id="closeKioskBtn">← Close</button>
+            </div>
+            <div class="scanner-layout">
+                <div class="camera-panel">
+                    <div class="camera-frame" id="cameraSimBox">
+                        <video id="kioskWebcam" autoplay playsinline style="width:100%; border-radius: 24px;"></video>
+                        <div id="recogHint" style="margin-top: 12px;">Position face in camera</div>
+                    </div>
+                    <button class="mock-btn" id="startRecognitionBtn">🔍 Start Face Recognition</button>
+                    <div class="student-buttons" id="quickStudentList"></div>
+                    <div class="small-note">* Click 'Start Recognition' to scan face and mark attendance</div>
+                </div>
+                <div class="log-panel">
+                    <div class="flex-between">
+                        <strong>📋 Today's Attendance</strong>
+                        <span id="liveMarkCount">0 marked present</span>
+                    </div>
+                    <div class="attendance-log" id="liveLogList"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STUDENT PORTAL -->
+        <div id="studentPortalPanel" class="section" style="display: none;">
+            <div class="section-header">
+                <h2>🎓 Student Portal · Register your face ID</h2>
+                <button class="reset-btn" id="closeStudentBtn">← Back</button>
+            </div>
+            <p style="margin-bottom: 12px;">First Time Setup: Register your face ID for contactless attendance</p>
+            <div style="background:#f7f9fe; border-radius: 32px; padding: 24px;">
+                <h3>📱 Register Face ID</h3>
+                <p>Scan QR code to begin your one-time face registration</p>
+                <div class="qr-area" id="qrSection">
+                    <div class="qr-sim">
+                        ⬛⬛⬛⬛⬛⬛⬛<br>
+                        ⬛ ████ ██ ████ ⬛<br>
+                        ⬛ ██  FACE  ██ ⬛<br>
+                        ⬛ ██ ATTEND ██ ⬛<br>
+                        ⬛ ████████████ ⬛<br>
+                        ⬛⬛⬛⬛⬛⬛⬛<br>
+                        <span style="font-size: 10px;">faceattend.app/student/register</span>
+                    </div>
+                    <button id="continueOnDeviceBtn" class="primary-btn">Continue on this device →</button>
+                </div>
+                <div id="studentRegistrationMessage" style="margin-top: 20px; font-weight: 500;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

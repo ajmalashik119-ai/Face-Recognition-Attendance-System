@@ -1,0 +1,400 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+}
+
+body {
+    background: #f0f2f8;
+    padding: 24px 20px;
+}
+
+.dashboard {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header / Brand */
+.brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+    .brand h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #1E2A5E, #2D3A6E);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.3px;
+    }
+
+    .brand p {
+        color: #4a5b7a;
+        font-weight: 500;
+        background: #e9edf4;
+        padding: 6px 14px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+    }
+
+/* Portal Cards Grid */
+.portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.portal-card {
+    background: white;
+    border-radius: 32px;
+    padding: 24px 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+    .portal-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 32px -12px rgba(0, 0, 0, 0.12);
+    }
+
+.portal-icon {
+    font-size: 2.2rem;
+    margin-bottom: 18px;
+}
+
+.portal-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #121826;
+}
+
+.portal-card p {
+    color: #5b6e8c;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    line-height: 1.4;
+}
+
+.portal-btn {
+    background: #f0f3f9;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #1e2f5e;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .portal-btn:hover {
+        background: #e2e8f2;
+        transform: scale(0.98);
+    }
+
+/* Stats Row */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 28px;
+    padding: 18px 20px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+    border: 1px solid #eef2f9;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1f2b48;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: #6d7b97;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+}
+
+.badge-verify {
+    font-size: 0.75rem;
+    background: #eef2ff;
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 30px;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Sections */
+.section {
+    background: white;
+    border-radius: 32px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2fa;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eff3fa;
+    padding-bottom: 14px;
+}
+
+    .section-header h2 {
+        font-size: 1.55rem;
+        font-weight: 600;
+    }
+
+/* Attendance Log */
+.attendance-log {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.student-info {
+    font-weight: 600;
+}
+
+.student-detail {
+    font-size: 0.75rem;
+    color: #6f7d98;
+}
+
+.time-badge {
+    background: #eef3fc;
+    padding: 4px 12px;
+    border-radius: 60px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-present {
+    color: #0f7b3a;
+    background: #e1f7ea;
+    padding: 4px 10px;
+    border-radius: 40px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.status-absent {
+    color: #b13e3e;
+    background: #ffe6e5;
+}
+
+/* Scanner Layout */
+.scanner-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+}
+
+.camera-panel {
+    flex: 1.2;
+    min-width: 260px;
+    background: #f8fafd;
+    border-radius: 28px;
+    padding: 20px;
+    text-align: center;
+}
+
+.camera-frame {
+    background: #1e2a3a;
+    border-radius: 28px;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 12px;
+    background-image: radial-gradient(circle at 30% 40%, #2c3e50 2%, transparent 2.5%);
+    background-size: 24px 24px;
+}
+
+.log-panel {
+    flex: 1;
+}
+
+.mock-btn {
+    background: #1f2b48;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    margin-top: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .mock-btn:hover {
+        background: #2a3a60;
+        transform: scale(0.98);
+    }
+
+.student-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.student-sim {
+    background: #eef2ff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .student-sim:hover {
+        background: #e0e6f5;
+        transform: scale(0.96);
+    }
+
+.small-note {
+    font-size: 0.7rem;
+    color: #7a88a6;
+    margin-top: 12px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset-btn {
+    background: none;
+    border: 1px solid #dce3ec;
+    padding: 6px 14px;
+    border-radius: 60px;
+    cursor: pointer;
+}
+
+.danger-btn {
+    background: #fef2e8;
+    border: 1px solid #ffd9c5;
+    padding: 8px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .danger-btn:hover {
+        background: #ffe6d9;
+    }
+
+.primary-btn {
+    background: #1E2A5E;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .primary-btn:hover {
+        background: #2a3a70;
+        transform: scale(0.98);
+    }
+
+/* QR Area */
+.qr-area {
+    background: #f9fbfe;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border: 1px dashed #bfcee4;
+}
+
+.qr-sim {
+    font-family: monospace;
+    background: white;
+    display: inline-block;
+    padding: 16px 20px;
+    border-radius: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Table Styles */
+#attendanceTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    #attendanceTable th {
+        text-align: left;
+        padding: 12px 8px;
+        background: #f8fafd;
+        border-bottom: 2px solid #e2e8f0;
+    }
+
+    #attendanceTable td {
+        padding: 12px 8px;
+        border-bottom: 1px solid #edf2f7;
+    }
+
+/* Responsive */
+@media (max-width: 800px) {
+    body {
+        padding: 16px;
+    }
+
+    .section {
+        padding: 18px;
+    }
+
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .brand h1 {
+        font-size: 1.3rem;
+    }
+}
+
+button {
+    cursor: pointer;
+}
